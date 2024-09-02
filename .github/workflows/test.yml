@@ -23,9 +23,22 @@ jobs:
 
     - name: Restore .NET dependencies
       run: |
-        dotnet restore "./Maroc.Api/Maroc.Api.csproj"
+        dotnet restore "./Market.Api/Market.Api.csproj"
         dotnet restore "./Maroc.Core/Maroc.Core.csproj"
-        dotnet restore "./Maroc.Infrastructure/Maroc.Infrastructure.csproj"
+        dotnet restore "./Maroc.Infastructure/Maroc.Infastructure.csproj"
+
+    - name: Build .NET projects
+      run: |
+        dotnet build "./Market.Api/Market.Api.csproj" --configuration Release --no-restore
+        dotnet build "./Maroc.Core/Maroc.Core.csproj" --configuration Release --no-restore
+        dotnet build "./Maroc.Infastructure/Maroc.Infastructure.csproj" --configuration Release --no-restore
+
+    - name: Run .NET tests
+      run: |
+        dotnet test "./Market.Api/Market.Api.csproj" --no-restore --verbosity normal
+        dotnet test "./Maroc.Core/Maroc.Core.csproj" --no-restore --verbosity normal
+        dotnet test "./Maroc.Infastructure/Maroc.Infastructure.csproj" --no-restore --verbosity normal
+
         
     - name: Setup Node.js for React
       uses: actions/setup-node@v3
