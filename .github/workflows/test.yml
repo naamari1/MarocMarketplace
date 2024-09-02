@@ -13,9 +13,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: List root directory content
-      run: ls -la
-
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
@@ -38,7 +35,6 @@ jobs:
         dotnet test "./Market.Api/Market.Api.csproj" --no-restore --verbosity normal
         dotnet test "./Maroc.Core/Maroc.Core.csproj" --no-restore --verbosity normal
         dotnet test "./Maroc.Infastructure/Maroc.Infastructure.csproj" --no-restore --verbosity normal
-
         
     - name: Setup Node.js for React
       uses: actions/setup-node@v3
@@ -50,15 +46,3 @@ jobs:
 
     - name: Build React project
       run: npm run build --prefix marocmarketplace.react
-
-    - name: Build .NET projects
-      run: |
-        dotnet build "MarocMarketplace/Maroc.Api/Maroc.Api.csproj" --configuration Release --no-restore
-        dotnet build "MarocMarketplace/Maroc.Core/Maroc.Core.csproj" --configuration Release --no-restore
-        dotnet build "MarocMarketplace/Maroc.Infrastructure/Maroc.Infrastructure.csproj" --configuration Release --no-restore
-
-    - name: Run .NET tests
-      run: |
-        dotnet test "MarocMarketplace/Maroc.Api/Maroc.Api.csproj" --no-restore --verbosity normal
-        dotnet test "MarocMarketplace/Maroc.Core/Maroc.Core.csproj" --no-restore --verbosity normal
-        dotnet test "MarocMarketplace/Maroc.Infrastructure/Maroc.Infrastructure.csproj" --no-restore --verbosity normal
