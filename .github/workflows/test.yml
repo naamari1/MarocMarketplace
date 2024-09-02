@@ -18,15 +18,15 @@ jobs:
       with:
         dotnet-version: '8.0.x'
 
-    - name: List directory structure
-      run: ls -R
+    - name: List specific directory content
+      run: ls -la Maroc.Api/
 
     - name: Restore .NET dependencies
       run: |
-        dotnet restore "MarocMarketplace/Maroc.Api/Maroc.Api.csproj"
-        dotnet restore "MarocMarketplace/Maroc.Core/Maroc.Core.csproj"
-        dotnet restore "MarocMarketplace/Maroc.Infrastructure/Maroc.Infrastructure.csproj"
-
+        dotnet restore "./Maroc.Api/Maroc.Api.csproj"
+        dotnet restore "./Maroc.Core/Maroc.Core.csproj"
+        dotnet restore "./Maroc.Infrastructure/Maroc.Infrastructure.csproj"
+        
     - name: Setup Node.js for React
       uses: actions/setup-node@v3
       with:
