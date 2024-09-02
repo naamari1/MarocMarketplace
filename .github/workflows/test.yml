@@ -13,13 +13,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
+    - name: List root directory content
+      run: ls -la
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '8.0.x'
-
-    - name: List specific directory content
-      run: ls -la Maroc.Api/
 
     - name: Restore .NET dependencies
       run: |
