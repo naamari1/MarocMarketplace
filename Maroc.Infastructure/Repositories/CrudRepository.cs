@@ -27,7 +27,7 @@ namespace Maroc.Infastructure.Repositories
 
 
 
-        public virtual async Task<T> GetByIdAsync(int id)
+        public virtual async Task<T> GetByIdAsync(Guid id)
         {
             var entity = await _context.Set<T>().FindAsync(id);
             if (entity == null)

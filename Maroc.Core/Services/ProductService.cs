@@ -51,7 +51,7 @@ namespace Maroc.Core.Services
             }
         }
 
-        public async Task<Product> GetByIdAsync(int id)
+        public async Task<Product> GetByIdAsync(Guid id)
         {
 
             try
