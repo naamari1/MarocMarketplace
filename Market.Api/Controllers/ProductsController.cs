@@ -38,5 +38,33 @@ namespace Market.Api.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [AllowAnonymous]
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(Guid id)
+        {
+            try
+            {
+                var product = await _productService.GetByIdAsync(id);
+
+                if (product == null)
+                {
+                    return NotFound();
+                }
+                var productDto = new ProductsResponseDto
+                {
+                    Id = product.Id,
+                    Name = product.Name,
+                    Description = product.Description,
+                    Price = product.Price,
+                    ImageUrl = product.ImageUrl
+                };
+                return Ok(productDto);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
