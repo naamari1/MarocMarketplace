@@ -20,6 +20,8 @@ builder.Services.AddScoped<IOrderDetailService, OrderDetailService>();
 builder.Services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
 builder.Services.AddScoped<IPaymentService, PaymentService>();
 builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
+builder.Services.AddScoped<IReviewService, ReviewService>();
+builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultDatabase")));
 
