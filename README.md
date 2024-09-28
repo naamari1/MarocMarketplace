@@ -1,6 +1,6 @@
 # MarocMarketplace
 
-**MarocMarketplace** is een webshop die wordt gebouwd met behulp van .NET Core voor de backend, een REST API voor communicatie, SQL Server voor dataopslag en React voor de frontend. Dit project is nog in ontwikkeling.
+**MarocMarketplace** is een webshop die wordt ontwikkeld met .NET Core voor de backend, een REST API voor communicatie, SQL Server voor dataopslag en React voor de frontend. Dit project is momenteel nog in ontwikkeling.
 
 ## Functionaliteiten
 
@@ -14,11 +14,13 @@
 
 - **Backend**: .NET Core
   - REST API voor communicatie tussen frontend en backend.
-  - SQL Server voor het beheren van de product-, klant- en bestellingsgegevens.
+  - SQL Server voor het beheren van product-, klant- en bestellingsgegevens.
   
 - **Frontend**: React
   - Dynamische gebruikersinterface met component-gebaseerde architectuur.
   - Responsive design voor zowel desktop als mobiel.
+
+- **IDE**: Visual Studio 2022
 
 ## Installatie
 
@@ -29,16 +31,13 @@
     ```
 
 2. **Backend (ASP.NET Core)**:
-   - Open het project in Visual Studio.
-   - Stel de juiste SQL Server-verbinding in het `appsettings.json` bestand.
-   - Voer de migraties uit om de database te initialiseren:
+   - Open het project in **Visual Studio 2022**.
+   - Zorg ervoor dat de juiste SQL Server-verbinding is ingesteld in het `appsettings.json` bestand.
+   - Voer de Entity Framework migraties uit om de database te initialiseren:
      ```bash
      dotnet ef database update
      ```
-   - Start de API:
-     ```bash
-     dotnet run
-     ```
+   - Start de API vanuit Visual Studio door de oplossing te builden en uit te voeren.
 
 3. **Frontend (React)**:
    - Navigeer naar de `ClientApp` map:
@@ -91,3 +90,4 @@ Neem gerust contact op als je vragen hebt:
 ---
 
 *Dit project is momenteel in ontwikkeling en kan bugs of onvolledige functionaliteiten bevatten.*
+
